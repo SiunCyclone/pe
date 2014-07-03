@@ -48,4 +48,3 @@ def divide(ary)
 end
 
 foo
-

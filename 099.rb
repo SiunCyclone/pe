@@ -27,4 +27,3 @@ def func(ary, depth=3, first=true)
 end
 
 main
-

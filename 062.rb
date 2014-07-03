@@ -10,4 +10,3 @@ def main(n)
 end
 
 main(5)
-

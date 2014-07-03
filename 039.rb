@@ -85,4 +85,3 @@ end
 start=Time.now
 foo
 puts "time: " + (Time.now-start).to_s + "sec"
-

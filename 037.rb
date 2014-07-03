@@ -29,4 +29,3 @@ def comp_prime?(n)
   end
   true
 end
-

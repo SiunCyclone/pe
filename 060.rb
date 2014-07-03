@@ -67,4 +67,3 @@ end
 start = Time.now
 p main
 puts Time.now - start
-

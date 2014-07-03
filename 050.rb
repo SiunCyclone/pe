@@ -74,4 +74,3 @@ end
 start = Time.now
 p max_prime_sum(1000000)
 p Time.now - start
-

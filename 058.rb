@@ -31,6 +31,6 @@ i = 1
     break
   end
 end
+
 puts
 p Time.now-t
-

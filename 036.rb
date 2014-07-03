@@ -18,4 +18,3 @@ def kaibun(ary)
 end
 
 foo
-
