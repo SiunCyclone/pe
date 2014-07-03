@@ -1,24 +1,10 @@
-ary = []
-
-(1..999).each {|x|
-	(1..999).each {|y|
-		tq = "#{x * y}"
-		if tq[0]==tq[tq.size-1]
-		if tq.size>5
-		if tq[1]==tq[tq.size-2]
-		if tq[2]==tq[tq.size-3]
-			ary << tq
-		end
-		end
-		end
-		end
-	}
-}
-
-stk = []
-ary.uniq!
-ary.each {|x|
-	stk << x.to_i
-}
-stk.sort!
-p stk
+list = []
+999.downto(100) do |x|
+  x.downto(100) do |y|
+    tmp = "#{x * y}"
+    if tmp.size > 5 && tmp[0]==tmp[-1] && tmp[1]==tmp[-2] && tmp[2]==tmp[-3]
+      list << tmp.to_i
+    end
+  end
+end
+p list.sort.pop
