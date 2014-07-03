@@ -45,8 +45,6 @@ def max_prime_sum(n)
 	(1...1/0.0).each do |i|
 		sum = pr.slice(k..l).inject{|x, y| x+y }
 		return sum if sum.is_prime? and sum < n
-		p i
-		p sum
 
 		if type=="move_to_left" and k==0
 			type = "decrease_right"
