@@ -7,4 +7,4 @@ list = []
     end
   end
 end
-p list.sort.pop
+p list.max

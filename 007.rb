@@ -1,7 +1,2 @@
-require "mathn"
-ary = []
-p = Prime.new
-p.each {|x|	if ary.size==10001 then break end
-			ary << x
-}
-p ary.pop
+require 'prime'
+p Prime.first(10001).pop
