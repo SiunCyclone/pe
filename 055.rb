@@ -25,9 +25,7 @@ end
 
 def is_kaibun(num)
   s = num.to_s
-  a = (s.size % 2 == 0) ?
-      s.slice(0..s.size/2-1) :
-      s.slice(0..s.size/2)
+  a = (s.size % 2 == 0) ?  s.slice(0..s.size/2-1) : s.slice(0..s.size/2)
   b = s.slice(s.size/2..s.size-1).reverse
   return true if a == b
   return false

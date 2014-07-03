@@ -3,10 +3,10 @@
 
 def exponent_under10(n, m)
   return n if m==1
-  (2..m).each{|i|
+  (2..m).each do |i|
     n *= 2
     n = n.to_s[-10,10].to_i if n.to_s.split(//).size > 10
-  }
+  end
   return n
 end
 

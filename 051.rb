@@ -1,6 +1,8 @@
 #2013/3/8
 #***
 
+require 'prime'
+
 def a_pri(n)
   list = []  
   pr = prime_list(1000000)
@@ -21,7 +23,7 @@ def a_pri(n)
           prime_copy[index] = i.to_s
         end
 
-        if prime_copy.to_i.is_prime? && prime.length == prime_copy.to_i.to_s.length
+        if Prime.prime?(prime_copy.to_i) && prime.length == prime_copy.to_i.to_s.length
           count += 1
           ls << prime_copy.clone
         end
@@ -53,26 +55,14 @@ end
 def prime_list(lim)
   list = []
   a = [true]*(lim+1)
-  a.each_with_index {|e,i|
+  a.each_with_index do |e, i|
     if i>=2 && e
       a[i] = false
       list << i
       i.upto(lim/i){|j| a[i*j]=false }
     end
-  }
-  list
-end
-
-class Integer
-  def is_prime?
-    return false if self<2
-    p = 2
-    while p*p <= self
-      return false if self%p==0
-      p += 1
-    end
-    true
   end
+  list
 end
 
 start = Time.now

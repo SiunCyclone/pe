@@ -1,29 +1,19 @@
 #2012/6/27
 #***
 
+require 'prime'
+
 def prime_list(lim)
   list = []
   a = [true]*(lim+1)
-  a.each_with_index {|e,i|
+  a.each_with_index do |e,i|
     if i>=2 && e
       a[i] = false
       list << i
       i.upto(lim/i){|j| a[i*j]=false }
     end
-  }
-  list
-end
-
-class Integer
-  def is_prime?
-    return false if self<2
-    p = 2
-    while p*p<=self
-      return false if self%p==0
-      p += 1
-    end
-    true
   end
+  list
 end
 
 def prime(make_num)
@@ -31,7 +21,7 @@ def prime(make_num)
   n = 0
   while i < make_num
     n += 1
-    i += 1 if n.is_prime?
+    i += 1 if Prime.prime?(n)
   end
   return n
 end
@@ -43,8 +33,8 @@ def max_prime_sum(n)
   type = "move_to_left"
   
   (1...1/0.0).each do |i|
-    sum = pr.slice(k..l).inject{|x, y| x+y }
-    return sum if sum.is_prime? and sum < n
+    sum = pr.slice(k..l).inject{|a, b| a + b }
+    return sum if Prime.prime?(sum) and sum < n
 
     if type=="move_to_left" and k==0
       type = "decrease_right"

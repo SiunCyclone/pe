@@ -8,18 +8,18 @@ def pr_list(n)
     (i+i).step(n,i){|x| a[x] = 0}
     i = a.index(true)
   end
-  a.each_with_index.map{|x,i| list <<  i if x!=0}
+  a.each_with_index.map{|x, i| list << i if x!=0}
   return list
 end
 
 def fn(n)
-  pr_list(n).inject {|x,y|
+  pr_list(n).inject do |x, y|
     if x*y > n
       @ans = x
       break
     end
-    x*y
-  }
+    x * y
+  end
   return @ans
 end
 

@@ -6,12 +6,12 @@ def product_same(n, i)
   false
 end
 
-(1..1000000).each{|x|
+(1..1000000).each do |x|
   flag = true
-  (2..6).each{|i|  
+  (2..6).each do |i|  
     flag = false if not product_same(x, i)
-  }
+  end
   next if not flag
   p x
   break
-}
+end

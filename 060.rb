@@ -1,27 +1,15 @@
 #*****
 
-class Integer
-  def is_prime?
-    return false if self < 2
-    p = 2
-    while p*p <= self
-      return false if self%p == 0
-      p += 1
-    end
-    return true
-  end
-end
-
 def prime_list(lim)
   list = []
   a = [true]*(lim+1)
-  a.each_with_index {|e,i|
+  a.each_with_index do |e, i|
     if i>=2 && e
       a[i] = false
       list << i
       i.upto(lim/i){|j| a[i*j]=false }
     end
-  }
+  end
   list
 end
 
@@ -30,7 +18,7 @@ def make_table(n)
   pr_list.each do |base|
     pr_list.each do |x|
       @table[base] ||= []
-      if (base.to_s+x.to_s).to_i.is_prime? && (x.to_s+base.to_s).to_i.is_prime? && base.is_prime? && x.is_prime?
+      if Prime.prime?((base.to_s+x.to_s).to_i) && Prime.prime?((x.to_s+base.to_s).to_i) && Prime.prime?(base) && Prime.prime?(x)
         @table[base] << x
       end
     end
