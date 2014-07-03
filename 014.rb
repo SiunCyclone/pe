@@ -1,22 +1,14 @@
+#2013/7/26
 
-# 23sec
-start = Time.now
-
-t = 2
-n = 2
-ary,stk,re = [],[],[]
-while t < 1000000
-  ary << t
-  re << t
-  while ary.last>1
-    n = (ary.last % 2 == 0) ? (n / 2) : (n * 3 + 1)
-    ary << n
-  end
-  stk << ary.size
-  t += 1
-  n = t
-  ary.clear
+def memoize(func)
+  @cache = {}
+  ->(n){ @cache[n] ||= func[n] }
 end
 
-p re[stk.index(stk.sort.last)]
-puts Time.now - start
+def main(lim)
+  collatz = memoize(->(n){ n==1 ? 0 : 1+collatz[n%2==0 ? n/2 : 3*n+1] })
+  (1...lim).each{|x| collatz[x] }
+  @cache.max{|a, b| a[1] <=> b[1] }.first
+end
+
+p main(1_000_000) #4.3sec
