@@ -28,7 +28,7 @@ def foo
 
   a = []
   hash.each_value do |value|
-    a <<  value.inject{|x, y| x*y}
+    a <<  value.inject(&:*)
   end
 
   p divide(a)[1]

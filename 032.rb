@@ -24,7 +24,7 @@ def main
     list = []
     list << comb(9, 1, 4)
     list << comb(9, 2, 3)
-    p list.flatten.uniq.inject{|a, b| a + b }
+    p list.flatten.uniq.inject(&:+)
   }
 
   sol.call

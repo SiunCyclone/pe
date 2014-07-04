@@ -17,7 +17,7 @@ def fn
   count = 1
 
   while true
-    sum = ary.inject{|x,y| x+y}
+    sum = ary.inject(&:+)
     max = lim-sum
     if sum > lim
       ary[i] = 0

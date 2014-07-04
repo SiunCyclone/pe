@@ -64,4 +64,4 @@ str.map {|x|
   }
   i += 1
 }
-p koq.inject {|sum, x| sum + x}
+p koq.inject(&:+)

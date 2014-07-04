@@ -10,7 +10,7 @@ def foo
   (0..pri_list.size-1).each do |k|
     i = 2
     while true
-      if pri_list[k].map{|t| t*i }.inject{|x, y| x+y } <= @p
+      if pri_list[k].map{|t| t*i }.inject(&:+) <= @p
         pri_list << pri_list[k].map{|t| t*i }
       else
         break
@@ -19,7 +19,7 @@ def foo
     end
   end
   
-  p repe(pri_list.map{|x| x.inject{|y, z| y+z } }.sort).map{|x| [x[0], x.size] }.select{|x| x[1] == 1 }.size
+  p repe(pri_list.map{|x| x.inject(&:+) }.sort).map{|x| [x[0], x.size] }.select{|x| x[1] == 1 }.size
 end
 
 def repe(ary)

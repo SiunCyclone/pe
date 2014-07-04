@@ -1,1 +1,1 @@
-p (21..40).inject {|a, b| a * b } / (1..20).inject {|a, b| a * b }
+p (21..40).inject(&:*) / (1..20).inject(&:*)

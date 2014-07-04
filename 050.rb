@@ -33,7 +33,7 @@ def max_prime_sum(n)
   type = "move_to_left"
   
   (1...1/0.0).each do |i|
-    sum = pr.slice(k..l).inject{|a, b| a + b }
+    sum = pr.slice(k..l).inject(&:+)
     return sum if Prime.prime?(sum) and sum < n
 
     if type=="move_to_left" and k==0

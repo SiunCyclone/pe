@@ -7,4 +7,4 @@ alp = {}
 
 f = File.read("./files/042/words.txt")
 str = f.delete("\"").split(",")
-p str.count{|x| !t.index(x.chars.to_a.map{|y| alp[y] }.inject{|s, t| s+t }).nil? }
+p str.count{|x| !t.index(x.chars.to_a.map{|y| alp[y] }.inject(&:+)).nil? }

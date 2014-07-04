@@ -7,7 +7,7 @@ def googol
   max = 0
   (1..100).each do |a|
     (1..100).each do |b|
-      t = (a**b).to_s.split(//).map(&:to_i).inject{|x, y| x+y }
+      t = (a**b).to_s.split(//).map(&:to_i).inject(&:+)
       max = t if t > max
     end
   end

@@ -3,6 +3,6 @@ str = "7316717653133062491922511967442657474235534919493496983520312774506326239
 list = []
 tmp = str.scan(/./).map(&:to_i)
 (0..str.size-13).each do |i|
-  list << tmp[i...i+13].inject{|a, b| a * b}
+  list << tmp[i...i+13].inject(&:*)
 end
 p list.max

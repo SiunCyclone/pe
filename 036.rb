@@ -7,7 +7,7 @@ def foo
     list << x if kaibun(x.to_s(2).split("")) && kaibun(x.to_s.split(""))
   end
   p list
-  p list.inject{|x,y| x+y}
+  p list.inject(&:+)
 end
 
 def kaibun(ary)

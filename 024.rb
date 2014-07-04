@@ -5,7 +5,7 @@ def jun(num,ary)
   sh = $bef
   ary.size.times do |i|
     $bef = sh
-    sh += (1..ary.size-1).inject{|x,y|x*y}
+    sh += (1..ary.size-1).inject(&:*)
     if sh>=num
       $re << ary.delete_at(i)-1
       break

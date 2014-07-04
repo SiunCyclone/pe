@@ -8,11 +8,11 @@ end
 def factorial(n)
   return false if n<0
   return 1 if n==0
-  return (1..n).inject{|x, y| x*y }
+  return (1..n).inject(&:*)
 end
 
 def foo
-  p (1..100).map{|i| (1..i).count{|x| combination(i,x) > 1000000 } }.inject{|x, y| x+y }
+  p (1..100).map{|i| (1..i).count{|x| combination(i,x) > 1000000 } }.inject(&:+)
 end
 
 foo

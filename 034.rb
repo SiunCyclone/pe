@@ -11,12 +11,12 @@ def foo
     list << num if sum == num
   end
   p list
-  p list.inject{|x,y| x+y}
+  p list.inject(&:+)
 end
 
 def factorial(n)
   return 1 if n==0
-  return (1..n).inject{|x,y| x*y}
+  return (1..n).inject(&:*)
 end
 
 foo

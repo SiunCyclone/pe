@@ -25,7 +25,7 @@ M = tmp.size-3
 
 tmp.each do |row|
   N.times do |i|
-    list << row[i...i+4].inject{|a, b| a * b }
+    list << row[i...i+4].inject(&:*)
   end
 end
 

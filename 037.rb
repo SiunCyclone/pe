@@ -9,7 +9,7 @@ def foo
     i += 1
   end
 
-  p list.inject{|x,y| x+y}
+  p list.inject(&:+)
 end
 
 def is_prime?(n)

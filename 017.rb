@@ -8,7 +8,8 @@ end
 
 9.times do |i| 
   (0..99).each do |x|
-    list << (x == 0 ? 7 + list[i] : (10 + list.slice(0..8)[i] + list[x-1]))
+    list << (x == 0 ? list[i] + "hundred".length : (list[i] + "hundred and".split.join.length + list[x-1]))
   end
 end
-p (list << "one thousand".split.join.length).inject{|sum, x| sum + x }
+
+p (list << "one thousand".split.join.length).inject(&:+)
