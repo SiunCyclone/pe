@@ -12,7 +12,7 @@ i = 1
 (3..100000).step(2) do |side|
   (side**2-6*i..side**2).step(side-1) do |num|
     tai_cnt += 1
-    pr_cnt += 1 if Prime.prime?(num)
+    pr_cnt += 1 if num.prime?
   end
   i += 1
 

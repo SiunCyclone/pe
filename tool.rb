@@ -26,3 +26,9 @@ class String
     self == self.reverse    
   end
 end
+
+class Object
+  def deep_clone
+    Marshal.load(Marshal.dump(self))
+  end
+end

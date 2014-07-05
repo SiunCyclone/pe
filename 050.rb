@@ -21,7 +21,7 @@ def prime(make_num)
   n = 0
   while i < make_num
     n += 1
-    i += 1 if Prime.prime?(n)
+    i += 1 if n.prime?
   end
   return n
 end
@@ -34,7 +34,7 @@ def max_prime_sum(n)
   
   (1...1/0.0).each do |i|
     sum = pr.slice(k..l).inject(&:+)
-    return sum if Prime.prime?(sum) and sum < n
+    return sum if sum.prime? and sum < n
 
     if type=="move_to_left" and k==0
       type = "decrease_right"

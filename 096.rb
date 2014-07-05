@@ -1,6 +1,7 @@
 # 2014/3/31
 
 require 'pp'
+require './tool'
 
 class Board
   attr_reader :answer, :cellList
@@ -69,7 +70,7 @@ class Board
     } 
 
     detect_the_number = -> {
-      preList = Marshal.load(Marshal.dump(@cellList.map(&:num)))
+      preList = @cellList.map(&:num).deep_clone
       @cellList.each do |cell|
         if cell.possibleList.length == 1
           cell.num = cell.possibleList.pop
@@ -97,13 +98,13 @@ class Board
 
         tmp = []
         9.times do |i|
-          tmp << Marshal.load(Marshal.dump(@cellList[i*9..(i+1)*9-1].map(&:num).join))
+          tmp << @cellList[i*9..(i+1)*9-1].map(&:num).join.deep_clone
         end
 
         board = Board.new(tmp)
 
         if (board.solve)
-          @cellList = Marshal.load(Marshal.dump(board.cellList))
+          @cellList = board.cellList.deep_clone
         end
       end
 
@@ -113,7 +114,7 @@ class Board
 
   def apply
     9.times do |i|
-      @answer << Marshal.load(Marshal.dump(@cellList[i*9..(i+1)*9-1].map(&:num)))
+      @answer << @cellList[i*9..(i+1)*9-1].map(&:num).deep_clone
     end
   end
 end

@@ -1,5 +1,7 @@
 #*****
 
+require 'prime'
+
 def prime_list(lim)
   list = []
   a = [true]*(lim+1)
@@ -18,7 +20,7 @@ def make_table(n)
   pr_list.each do |base|
     pr_list.each do |x|
       @table[base] ||= []
-      if Prime.prime?((base.to_s+x.to_s).to_i) && Prime.prime?((x.to_s+base.to_s).to_i) && Prime.prime?(base) && Prime.prime?(x)
+      if (base.to_s+x.to_s).to_i.prime? && (x.to_s+base.to_s).to_i.prime? && base.prime? && x.prime?
         @table[base] << x
       end
     end

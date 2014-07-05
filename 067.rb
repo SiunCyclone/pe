@@ -1,3 +1,5 @@
+require './tool'
+
 str = nil
 open("./files/067/triangle.txt") do |f|
   str = f.read
@@ -17,10 +19,10 @@ ary,stk = [],[]
   end
   line_num.shift
   line_num[0].each.with_index do |x,i|
-    stk << Marshal.load(Marshal.dump(x.to_i+ary[i].to_i))
+    stk << x.to_i+ary[i].to_i.deep_clone
   end
   line_num.shift
-  line_num.unshift(Marshal.load(Marshal.dump(stk)))
+  line_num.unshift(stk.deep_clone)
   ary.clear
   stk.clear
 end

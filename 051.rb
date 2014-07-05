@@ -23,7 +23,7 @@ def a_pri(n)
           prime_copy[index] = i.to_s
         end
 
-        if Prime.prime?(prime_copy.to_i) && prime.length == prime_copy.to_i.to_s.length
+        if prime_copy.to_i.prime? && prime.length == prime_copy.to_i.to_s.length
           count += 1
           ls << prime_copy.clone
         end

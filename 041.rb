@@ -1,17 +1,7 @@
 #2012/5/26
 #1.5h
 
-class Fixnum
-  def is_prime?
-    return false if self<2
-    p = 2
-    while p*p <= self
-      return false if self%p==0
-      p += 1
-    end
-    true
-  end
-end
+require 'prime'
 
 def anagram(n, m=0, perm=[], ary=[])
   if n==m
@@ -22,4 +12,4 @@ def anagram(n, m=0, perm=[], ary=[])
   ary
 end
 
-p anagram(7).flat_map{|x| x.join.to_i}.select{|x| x.is_prime? }.max
+p anagram(7).flat_map{|x| x.join.to_i}.select{|x| x.prime? }.max

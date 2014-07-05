@@ -1,19 +1,6 @@
 #2012/5/28
 #50min
 
-class Integer
-  def prime?
-    return false if self<2
-    p = 1
-    while p*p<=self
-      return false if self%p==0
-      p += 1
-
-    end
-    true
-  end
-end
-
 def div_check(ary)
   divls = [2,3,5,7,11,13,17]
   divls.size.times {|i|
