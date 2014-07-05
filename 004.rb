@@ -1,12 +1,4 @@
 require './tool'
 
-list = []
-999.downto(100) do |x|
-  x.downto(100) do |y|
-    tmp = "#{x * y}"
-    if tmp.palindrome?
-      list << tmp.to_i
-    end
-  end
-end
-p list.max
+p 999.downto(100).map{|x| x.downto(100).map{|y| product = x * y; product if product.to_s.palindrome? }.compact }.flatten.max
+
