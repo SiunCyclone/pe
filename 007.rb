@@ -1,2 +1,2 @@
 require 'prime'
-p Prime.first(10001).pop
+p Prime.take(10001).last
