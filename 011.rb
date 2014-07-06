@@ -1,4 +1,4 @@
-str = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
+STR = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
        49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
        81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65
        52 70 95 23 04 60 11 42 69 24 68 56 01 32 56 71 37 02 36 91
@@ -18,35 +18,17 @@ str = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
        20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16
        20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
        01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
-list = []
-tmp = str.scan(/([0-9][^\n]+)/).map{|x| x.first.scan(/[0-9]+/).map(&:to_i) }
-N = tmp.size
-M = tmp.size-3
+str = STR.scan(/([0-9][^\n]+)/).map{|x| x.first.scan(/[0-9]+/).map(&:to_i) }
+N, M = str.size, str.size-3
 
-tmp.each do |row|
-  N.times do |i|
-    list << row[i...i+4].inject(&:*)
-  end
-end
+a = str.map{|row| N.times.map{|i| row[i...i+4].inject(&:*) } }
+b = N.times.map{|i| M.times.map{|j| (j...j+4).inject(1){|product, k| product * str[k][i] } } }
+c = M.times.map{|i|
+  M.times.map{|j|
+    f = ->(index, flag) { 4.times.inject(1){|product, k| product * str[index + (flag ? k : -k)][j+k] } }
+    [f[i, true], f[i+3, false]]
+  }
+}
 
-N.times do |i|
-  M.times do |j|
-    t = 1
-    (j...j+4).each{|k| t *= tmp[k][i] }
-    list << t
-  end
-end
+p (a + b + c).flatten.max
 
-M.times do |i|
-  M.times do |j|
-    f = ->(index, flag) {
-      t = 1
-      4.times{|k| t *= tmp[index + (flag ? k : -k)][j+k] }
-      list << t
-    }
-    f[i, true]
-    f[i+3, false]
-  end
-end
-
-p list.max

@@ -12,3 +12,4 @@ def main(lim)
 end
 
 p main(1_000_000) #4.3sec
+
