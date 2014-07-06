@@ -1,11 +1,4 @@
-def ami(x)
-  ary = []
-  (1..x).each{|i| ary << i if x%i==0 && i!=x}
-  t = ary.inject(&:+)
-  return t ? t :1
-end
+require './tool'
 
-stk = []
-(1...10000).each{|y| stk << y if y==ami(ami(y)) && y!=ami(y)}
+p (2..9999).select{|x| !x.prime? && !x.perfect? && x == sum_of_true_divisors(sum_of_true_divisors(x)) }.inject(&:+)
 
-p stk.inject(&:+)
