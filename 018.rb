@@ -1,4 +1,4 @@
-str = "75
+STR = "75
        95 64
        17 47 82
        18 35 87 10
@@ -13,19 +13,11 @@ str = "75
        91 71 52 38 17 14 91 43 58 50 27 29 48
        63 66 04 68 89 53 67 30 73 16 69 87 40 31
        04 62 98 27 23 09 70 98 73 93 38 53 60 04 23"
-line_num,ary,stk = [],[],[]
-str.scan(/([^\n]+)/).each{|line|line.each{|x|line_num<<x.scan(/[0-9]+/)}}
-line_num.reverse!
-0.upto(line_num.size-2) do
-  0.upto(line_num[0].size-1) do |i|
-    ary << ((line_num[0][i].to_i > line_num[0][i+1].to_i) ? line_num[0][i] : line_num[0][i+1])
-  end
-  line_num.shift
-  line_num[0].each.with_index do |x,i|
-    stk << Marshal.load(Marshal.dump(x.to_i+ary[i].to_i))
-  end
-  line_num.shift
-  line_num.unshift(Marshal.load(Marshal.dump(stk)))
-  ary.clear;stk.clear
+def trimax(seed, child)
+  seed.map.with_index{|x, i| x + [child[i], child[i+1]].max }
 end
-puts line_num
+
+str = STR.scan(/[0-9][^\n]+/).map{|x| x.scan(/\w+/).map(&:to_i) }.reverse
+list = str.first
+p (1...str.length).map{|i| list = trimax(str[i], list) }.flatten.last
+
