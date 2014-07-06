@@ -1,22 +1,5 @@
 require 'prime'
 
-$fib = Enumerator.new do |yielder|
-  a = b = 1
-  loop do
-    yielder << a
-    a, b = b, a + b
-  end
-end
-
-$trinum = Enumerator.new do |yielder|
-  i = x = 1 
-  loop do
-    yielder << x
-    i += 1
-    x += i
-  end
-end
-
 def num_of_divisors(n)
   n.prime_division.inject(1){|cnt, xs| cnt * (xs[1] + 1) }
 end
@@ -45,6 +28,23 @@ end
 class Object
   def deep_clone
     Marshal.load(Marshal.dump(self))
+  end
+end
+
+$fib = Enumerator.new do |yielder|
+  a = b = 1
+  loop do
+    yielder << a
+    a, b = b, a + b
+  end
+end
+
+$trinum = Enumerator.new do |yielder|
+  i = x = 1 
+  loop do
+    yielder << x
+    i += 1
+    x += i
   end
 end
 
