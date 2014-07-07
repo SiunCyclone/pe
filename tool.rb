@@ -25,7 +25,8 @@ class Integer
   end
 
   def square?
-    Math.sqrt(self).to_f.to_s.split(//)[-2..-1] == [".", "0"]
+    root = Math.sqrt(self)
+    (root.to_f.to_s.split(//)[-2..-1] == [".", "0"]) && (root * root == self)
   end
 end
 
