@@ -23,6 +23,10 @@ class Integer
   def perfect?
     self == sum_of_true_divisors(self)
   end
+
+  def square?
+    Math.sqrt(self).to_f.to_s.split(//)[-2..-1] == [".", "0"]
+  end
 end
 
 class Object
