@@ -27,3 +27,4 @@ penta_list = [1]
   end
   penta_list.unshift(k)
 end
+

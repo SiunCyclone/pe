@@ -16,3 +16,4 @@ def jun(num,ary)
 end
 
 puts jun(1000000,ary)
+

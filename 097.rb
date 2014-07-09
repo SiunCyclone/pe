@@ -13,3 +13,4 @@ end
 start = Time.now
 p (28433*exponent_under10(2,7830457)+1).to_s[-10,10].to_i
 p Time.now-start
+

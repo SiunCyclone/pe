@@ -24,3 +24,4 @@ def fn(n)
 end
 
 p fn(1000000)
+

@@ -26,3 +26,4 @@ def main(d, max)
 end
 
 main(1_000_000, Rational(3, 7))
+

@@ -7,3 +7,4 @@ def foo
 end
 
 foo
+

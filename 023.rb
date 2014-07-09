@@ -17,3 +17,4 @@ stk.each do |x|
   re.delete(:"#{x}")
 end
 p re.map(&:to_s).map(&:to_i).inject(&:+)
+

@@ -8,3 +8,4 @@ def foo(num,sum,dis,n)
 end
   
 p foo(1001,1,2,1)
+

@@ -12,3 +12,4 @@ end
 start = Time.now
 p (0..9).to_a.permutation.map{|x| div_check(x) ? x : nil }.compact.map(&:join).map(&:to_i).inject(&:+)
 p Time.now - start
+

@@ -25,3 +25,4 @@ limit = 1000
 
 p @ab[0] * @ab[1]
 puts 'time: '+(Time.now-start).to_s+'sec'
+

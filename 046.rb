@@ -19,3 +19,4 @@ def gbach(n)
 end
 
 p (1..10000).step(2).select{|x| not x.is_prime? and x!=1 }.each{|x| break x if not gbach(x) }
+

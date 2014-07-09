@@ -34,3 +34,4 @@ end
 start = Time.now
 p fn
 puts 'time: '+(Time.now-start).to_s+'sec'
+

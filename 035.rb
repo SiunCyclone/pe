@@ -26,3 +26,4 @@ end
 start = Time.now
 foo 
 p Time.now - start
+

@@ -100,3 +100,4 @@ def straight(nums_str, card_model)
 end
 
 main
+

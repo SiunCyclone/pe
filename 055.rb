@@ -32,3 +32,4 @@ def is_kaibun(num)
 end
 
 lychrel(10000)
+

@@ -20,3 +20,4 @@ ary = []
 end
 
 p ary.index(ary.max)+1
+

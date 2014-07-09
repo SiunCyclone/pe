@@ -26,3 +26,4 @@ end
 start = Time.now
 p seq_div_prime(4).min.min
 p Time.now-start
+

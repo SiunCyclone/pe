@@ -13,3 +13,4 @@ def anagram(n, m=0, perm=[], ary=[])
 end
 
 p anagram(7).flat_map{|x| x.join.to_i}.select{|x| x.prime? }.max
+
