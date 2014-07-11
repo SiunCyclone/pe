@@ -1,19 +1,18 @@
-def pr_list(n)
+def prime_list(lim)
   list = []
-  a = [true]*(n+1)
-  a[0..1] = [0,0]
-  i = 2
-  while i*i < n
-    a[i] = 1
-    (i+i).step(n,i){|x| a[x] = 0}
-    i = a.index(true)
+  a = [true]*(lim+1)
+  a.each_with_index do |e,i|
+    if i>=2 && e
+      a[i] = false
+      list << i
+      i.upto(lim/i){|j| a[i*j] = false }
+    end
   end
-  a.each_with_index.map{|x, i| list << i if x!=0}
-  return list
+  list
 end
 
 def fn(n)
-  pr_list(n).inject do |x, y|
+  prime_list(n).inject do |x, y|
     if x*y > n
       @ans = x
       break

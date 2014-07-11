@@ -30,3 +30,5 @@ def comp_prime?(n)
   true
 end
 
+foo
+

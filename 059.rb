@@ -22,7 +22,6 @@ def analyze(ary, key)
     p words
     p sum(words)
   else
-    p key
     analyze(ary, next_key(key))
   end
 end

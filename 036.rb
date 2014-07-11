@@ -6,7 +6,6 @@ def foo
   (1..1000000).each do |x|
     list << x if kaibun(x.to_s(2).split("")) && kaibun(x.to_s.split(""))
   end
-  p list
   p list.inject(&:+)
 end
 
