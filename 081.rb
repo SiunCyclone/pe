@@ -12,11 +12,11 @@ def main
 
   add_seed = ->(direction, seed) {
     pos = [seed[:pos], direction.values].transpose.map{|xs| xs.inject(&:+) }
-    tmp = { sum: seed[:sum]+ary[pos[1]][pos[0]], pos: pos }
+    newSeed = { sum: seed[:sum]+ary[pos[1]][pos[0]], pos: pos }
     seedList.each do |r|
-      if r[:pos] == tmp[:pos]
-        if r[:sum] > tmp[:sum]
-          seedList << tmp
+      if r[:pos] == newSeed[:pos]
+        if r[:sum] > newSeed[:sum]
+          seedList << newSeed
           seedList.delete(r)
           return
         else
@@ -24,7 +24,7 @@ def main
         end
       end
     end
-    seedList << tmp
+    seedList << newSeed
   }
 
   while !seedList.empty?
