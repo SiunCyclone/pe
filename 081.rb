@@ -7,31 +7,31 @@ def main
     end
   end
 
-  rootList = []
-  rootList << { sum: ary[0][0], pos: [ 0, 0 ] }
+  seedList = []
+  seedList << { sum: ary[0][0], pos: [ 0, 0 ] }
 
-  add_root = ->(direction, root) {
-    pos = [root[:pos], direction.values].transpose.map{|xs| xs.inject(&:+) }
-    tmp = { sum: root[:sum]+ary[pos[1]][pos[0]], pos: pos }
-    rootList.each do |r|
+  add_seed = ->(direction, seed) {
+    pos = [seed[:pos], direction.values].transpose.map{|xs| xs.inject(&:+) }
+    tmp = { sum: seed[:sum]+ary[pos[1]][pos[0]], pos: pos }
+    seedList.each do |r|
       if r[:pos] == tmp[:pos]
         if r[:sum] > tmp[:sum]
-          rootList << tmp
-          rootList.delete(r)
+          seedList << tmp
+          seedList.delete(r)
           return
         else
           return
         end
       end
     end
-    rootList << tmp
+    seedList << tmp
   }
 
-  while !rootList.empty?
-    root = rootList.shift
-    p root[:sum] if root[:pos] == [ 79, 79 ]
-    add_root.call({ x: 1, y: 0}, root) if root[:pos][0] != 79
-    add_root.call({ x: 0, y: 1}, root) if root[:pos][1] != 79
+  while !seedList.empty?
+    seed = seedList.shift
+    p seed[:sum] if seed[:pos] == [ 79, 79 ]
+    add_seed.call({ x: 1, y: 0}, seed) if seed[:pos][0] != 79
+    add_seed.call({ x: 0, y: 1}, seed) if seed[:pos][1] != 79
   end
 end
 
